@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env
+
+# OS files
+.DS_Store
+
+# App data (do NOT upload your local data)
+data/ledger.json
+data/ANCHOR.txt
+data/ANCHOR_HISTORY.log
+
