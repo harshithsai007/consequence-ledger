@@ -1,3 +1,0 @@
-latest_hash=ebb22abb45073212dbf6f5b7ea009fc1b16ae3f7834a251f3a0de6d52c78dd18
-timestamp=2026-01-05T11:11:29Z
-note=finalize REJECT 2026-01-05T11:07:08Z
