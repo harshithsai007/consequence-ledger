@@ -1,107 +1,85 @@
-# 🧠 Consequence Ledger
+# Consequence Ledger
 
-Consequence Ledger is a simple prototype that helps organizations **remember what happened before** when they made important decisions.
+Consequence Ledger is a Python-based prototype that helps organizations avoid repeating harmful decisions by preserving institutional memory.
 
-It does NOT predict the future.
-It does NOT tell leaders what to do.
+Instead of predicting the future, it records **past decisions**, their **real outcomes**, **warnings**, **safer alternatives**, and **final leadership responses** in a tamper-evident ledger.
 
-It simply says:
-👉 “Last time you did something like this, here is what happened.”
+The system ensures that when a similar decision is proposed again, leaders are confronted with what actually happened last time — before acting.
 
 ---
 
-## 👶 Explain Like I’m 10 Years Old
+## Problem This Solves
 
-Imagine a company is like a school.
+Organizations often fail not because they lack intelligent people, but because **institutional memory fades**.
 
-Sometimes teachers make rules.
-Later, those rules cause problems.
-But after some time, everyone forgets.
+Common failure pattern:
+- A decision is made
+- Short-term success hides long-term harm
+- Time passes, people change
+- The same decision is made again — with the same consequences
 
-So the same bad rule gets made again.
-
-This project is like a **memory book** for companies.
-
-It writes down:
-- What decision was made
-- What bad things happened later
-- Whether someone warned about it
-- What safer choices existed
-- What final choice the leader made
-
-And once written…
-🧱 **It cannot be secretly changed.**
+Consequence Ledger addresses this by creating a **durable, queryable memory of decisions and outcomes** that cannot be silently rewritten.
 
 ---
 
-## 🧠 What Problem Does This Solve?
+## What This Prototype Implements
 
-Big organizations often fail not because they lack smart people,
-but because they **forget past consequences**.
+This project is a working end-to-end system, not a mockup.
 
-This leads to:
-- Repeated mistakes
-- Blame shifting
-- No accountability
-- “We didn’t know” excuses
+### Core Capabilities
+- Structured decision recording with metadata
+- Outcome tracking with harm categorization
+- Pattern detection across decision types
+- Warning generation based on historical evidence
+- Counterfactual (safer alternative) suggestions
+- Explicit leadership responses:
+  - APPROVE
+  - REJECT
+  - DEFER
+- Final decision anchoring using a tamper-evident hash chain
+- Immutable audit trail for accountability
 
-Consequence Ledger creates **institutional memory**.
+### Key Design Principle
+This system **does not predict outcomes** and **does not tell leaders what to do**.
 
----
-
-## 🚫 What This Is NOT
-
-- ❌ Not an AI that predicts outcomes
-- ❌ Not a decision-making bot
-- ❌ Not surveillance
-- ❌ Not a compliance tool (yet)
-
-This is a **memory + accountability system**.
+It provides **institutional memory**, not judgment.
 
 ---
 
-## ✅ What This Prototype Can Do
+## Example Workflow
 
-✔ Record decisions  
-✔ Record real-world outcomes  
-✔ Detect repeated harm patterns  
-✔ Warn before similar decisions  
-✔ Suggest safer alternatives  
-✔ Force leadership responses:
-- APPROVE
-- REJECT
-- DEFER  
-✔ Final decisions are **tamper-evident** using hash anchoring  
+```bash
+# Propose a decision
+python3 review_decision.py "Engagement Optimization" "Increase algorithmic amplification"
 
----
+# View historical warnings
+python3 warn.py "Engagement Optimization"
 
-## 🧱 Why This Is Different
+# See safer alternatives based on past failures
+python3 counterfactual.py "Engagement Optimization"
 
-Most tools ask:
-> “What do you think will happen?”
+# Record a leadership response
+python3 respond.py REJECT "Risk too high due to past misinformation"
 
-This tool asks:
-> “What actually happened last time?”
+# Finalize and anchor the decision
+python3 finalize.py REJECT "Repeated harm confirmed"
 
-That difference matters.
+# Check current status
+python3 status.py
 
----
-
-## 📁 Project Structure
-
-```text
 consequence_ledger/
-├── ledger.py            # Core ledger storage (SQLite)
-├── ai_layer.py          # Institutional memory (not prediction)
-├── review_decision.py   # Reviews new decisions using past data
-├── warn.py              # Shows warnings based on history
-├── counterfactual.py    # Safer alternative options
-├── respond.py           # APPROVE / REJECT / DEFER
-├── finalize.py          # Locks final decisions with hash
-├── status.py            # Shows current decision state
-├── patterns.py          # Detects repeated harm
-├── harm_report.py       # Harm summary by decision type
-├── ANCHOR.txt           # Latest hash anchor (ignored in git)
-├── ANCHOR_HISTORY.log   # Hash chain history (ignored in git)
+├── ledger.py              # Core database logic
+├── ai_layer.py            # Memory retrieval & reasoning layer
+├── review_decision.py     # Decision review pipeline
+├── warn.py                # Historical warning generator
+├── counterfactual.py      # Safer alternative suggestions
+├── respond.py             # Leadership response recording
+├── finalize.py            # Final decision anchoring
+├── status.py              # Current decision state
+├── patterns.py            # Pattern analysis
+├── harm_report.py         # Harm aggregation reports
+├── drift.py               # Change detection over time
+├── demo_report.py         # End-to-end demo summary
 └── README.md
+
 
